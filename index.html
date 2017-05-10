@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>How to make Frankenstein's monster or how to combine next.js and React Native</title>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Shower Theme -->
+    <link rel="stylesheet" href="vendors/shower-ribbon/styles/screen-16x10.css"/>
+    <link rel="stylesheet" href="vendors/shower-warsawjs/styles/main.css"/>
+
+    <!-- Prism.js -->
+    <link rel="stylesheet" href="vendors/prism/prism.css"/>
+    <link rel="stylesheet" href="modules/custom-prism.css"/>
+</head>
+<body class="shower list">
+    <header class="caption">
+        <h1>WarsawJS Slides: Template</h1>
+        <p>We talk about JavaScript. Each month in Warsaw, Poland.</p>
+    </header>
+
+    <section class="slide front-page">
+        <div class="logo">
+            <!-- Logo WarsawJS -->
+            <img src="pictures/logo/warsawjs-logo-light.png">
+        </div>
+        <div class="details">
+            <!-- 1. Avatar -->
+            <img src="pictures/my-avatar.jpg" alt="Speaker"/>
+
+            <!-- 2. Speaker -->
+            <h2>Jędrzej Majko</h2>
+
+            <!-- 3. Presentation title -->
+            <h2><strong>"How to make Frankenstein's monster or how to combine next.js and React Native" [EN]</strong></h2>
+
+            <!-- 4. Presentation date -->
+            <h2>2017-05-10</h2>
+
+            <!-- 5. Contact the speaker -->
+            <h2><a href="mailto:jedrzej@coobers.com">jedrzej@coobers.com</a></h2>
+        </div>
+    </section>
+
+    <section class="slide compact">
+        <h2>Introduction</h2>
+        <ul style="font-size: 40px;">
+            <li>Jędrzej Majko -> Owner @ coobers</li>
+            <li>We build startups from ground up (Business+IT)</li>
+            <li>AWS + Docker scaled scattered deployments</li>
+        </ul>
+    </section>
+
+    <section class="slide compact">
+        <h2>Old dev stack</h2>
+        <ul style="font-size: 40px;">
+            <li>APIS: NodeJS + SWAGGER</li>
+            <li >Worker instances: Python Flask</li>
+            <li ">Mobile apps: React Native</li>
+            <li >Web/Administration: PHP Kohana</li>
+        </ul>
+    </section>
+
+    <section class="slide compact">
+        <h2>New dev stack</h2>
+        <ul style="font-size: 40px;">
+            <li>APIS: NodeJS + SWAGGER</li>
+            <li >Worker instances: Node.JS</li>
+            <li>Mobile apps: React Native</li>
+            <li >Web: next.js</li>
+            <li >Admin: PHP Kohana</li>
+        </ul>
+    </section>
+
+    <section class="slide compact">
+        <h2>Why next.js?</h2>
+        <ul style="font-size: 40px;list-style:none">
+            <li>"Standarized" Webpack - Works out of the box</li>
+            <li>Hot reload</li>
+            <li>No problems with redux</li>
+            <li>Build in navigator</li>
+            <li>Architecture comparable to React Native</li>
+            <li><b>In beta</b></li>
+        </ul>
+    </section>
+
+    <section class="slide compact">
+        <h2>React Native + next.js</h2>
+
+
+        <table>
+            <tr>
+                <th scope="col"></th>
+                <th>React Native</th>
+                <th>next.js</th>
+                <th>Kohana/PHP</th>
+            </tr>
+            <tr>
+                <th scope="row">Data source</th>
+                <td>Using API</td>
+                <td>Using API</td>
+                <td>Directly/API</td>
+            </tr>
+            <tr>
+                <th scope="row">Client side routing</th>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <th scope="row">Server side rendering</th>
+                <td>Kind of</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <th scope="row">Client side rendering</th>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>With additional libs</td>
+            </tr>
+            <tr>
+                <th scope="row">Templating</th>
+                <td>JSX</td>
+                <td>JSX</td>
+                <td>PHP/HTML</td>
+            </tr>
+        </table>
+
+
+    </section>
+
+    <section class="slide compact">
+        <h2>React Native + next.js</h2>
+
+
+        <p style="font-size: 80px;text-align: center">Let's try to join them together!</p>
+
+
+    </section>
+
+    <section class="slide compact">
+        <h2>Approach A</h2>
+        <p style="font-size: 80px;text-align: center">Common views</p>
+
+    </section>
+
+
+    <section class="slide prism">
+
+        <h2>React Native (0.42)</h2>
+
+        <pre style="font-size: 35px;" class="language-javascript line-numbers">
+            <code>
+import React from 'react'
+import { Text,View } from 'react-native'
+
+class Home extends React.Component {
+    render(){
+        return (&lt;View>
+                 &lt;Text>Hello World&lt;/Text>
+                &lt;/View>);
+    }
+}
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide prism">
+
+        <h2>next.js (2.3.1)</h2>
+
+        <pre style="font-size: 35px;" class="language-javascript line-numbers">
+            <code>
+// no imports needed!
+
+class Home extends React.Component {
+    render(){
+        return (&lt;div>
+                 &lt;span>Hello World&lt;/span>
+                &lt;/div>);
+    }
+}
+            </code>
+        </pre>
+    </section>
+
+
+    <section class="slide compact">
+
+        <h2>Approach A: Conclusion</h2>
+        <ul style="font-size: 40px;list-style:none">
+            <li>Hardcode View, Text classes into next.js</li>
+            <li>Ugly</li>
+            <li>No className support (next.js)</li>
+            <li>No React Native style attributes support</li>
+            <li><b>No support for diversification</b></li>
+            <li><b>BAD!</b></li>
+        </ul>
+
+    </section>
+
+    <section class="slide compact">
+        <h2>Approach B</h2>
+        <p style="font-size: 80px;text-align: center">Separated render class</p>
+
+    </section>
+
+    <section class="slide prism">
+
+        <h2>CommonCode (RN 0.42, NX 2.3.1)</h2>
+
+        <pre style="font-size: 30px;" class="language-javascript line-numbers">
+            <code>
+                import React from 'react'
+                import HomeRender from '../views/home'
+                class Home extends HomeRender {
+                    constructor(props){
+                        super(props);
+                        this.state = {my_state: 1};
+                    }
+                    componentWillReceiveProps(next){
+                        HomeRender.prototype
+                            .componentWillReceiveProps(next);
+                    }
+                }
+            </code>
+        </pre>
+    </section>
+
+
+    <section class="slide prism">
+
+        <h2>HomeRender (NX 2.3.1)</h2>
+
+        <pre style="font-size: 30px;" class="language-javascript line-numbers">
+            <code>
+                class HomeRender extends React.Component {
+                    constructor(props){
+                        super(props);
+                        this.state = {my_state: 2};
+                    }
+                    componentWillReceiveProps(next){
+                        console.log("new props", next);
+                    }
+                    render(){
+                        return (<div>Hello: {this.state.my_state}</div>)
+                    }
+                }
+            </code>
+        </pre>
+    </section>
+
+
+    <section class="slide compact">
+
+        <h2>Approach B: Conclusion</h2>
+        <ul style="font-size: 40px;list-style:none">
+            <li>No common project</li>
+            <li>Dev must copy common classes (aka. CommonCore) across projects (gulp)</li>
+            <li>CommonCode contains just logic, headless</li>
+            <li><b>Fast logic testing</b></li>
+        </ul>
+
+    </section>
+
+    <section class="slide compact">
+
+        <h2>Approach B: Implementation</h2>
+        <ul style="font-size: 40px;list-style:none">
+            <li>CommonCode is initiated from multiple levels of code, mostly below main navigation stack.</li>
+            <li>Redux must be used by additional proxy to use same Redux libraries between platforms (currently in development).</li>
+            <li>Increased reliability of business logic code</li>
+        </ul>
+
+    </section>
+
+    <section class="slide compact">
+
+        <h2>Problems</h2>
+        <ul style="font-size: 40px;list-style:none">
+            <li>next.js: cannot accept custom webpack middleware<br/>Pull is waiting: https://github.com/zeit/next.js/pull/823</li>
+            <li>next.js: No ability to connect SCSS directly</li>
+            <li>next.js: Problems with styles during server rendering, styles are duplicated, which required manual reload</li>
+
+        </ul>
+
+    </section>
+
+    <section class="slide compact">
+
+        <h2>Problems..</h2>
+        <ul style="font-size: 40px;list-style:none">
+
+            <li>next.js: No ability to access extend internal router</li>
+            <li>next.js: You must conform with it's internal structure:<br/>files in pages/ are directly accessible via url's</li>
+            <li>next.js: No transitions between scenes</li>
+        </ul>
+
+    </section>
+    <section class="slide compact">
+
+        <h2>Problems...</h2>
+        <ul style="font-size: 40px;list-style:none">
+            <li>next.js: No control over url authorization (all code is served for all users)<br/>
+            Example safe-server.js is in demo directory.</li>
+            <li>React Native: problems with fetch for pushing files to s3. Example of working S3 PUT on next slide.</li>
+        </ul>
+
+    </section>
+
+
+    <section class="slide prism">
+        <pre style="font-size: 30px;" class="language-javascript line-numbers">
+            <code>
+var xhr = new XMLHttpRequest({headers: { 'Accept-Encoding' : 'deflate' }});
+xhr.open('PUT', url);
+
+xhr.send({uri:file.uri});
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+        if(xhr.status === 200) {
+            alert(url);
+        }
+        else {
+            alert('Could not upload file.');
+            console.log(">>> XHR: ", xhr.responseText);
+        }
+    }
+};
+xhr.onerror = function(error) { console.log(">>> ERROR ",error) }
+            </code>
+        </pre>
+    </section>
+
+
+    <div class="progress"></div>
+
+    <footer class="badge">
+        <a href="https://github.com/warsawjs/warsawjs-slides-template">Fork me on GitHub</a>
+    </footer>
+
+    <footer class="badge badge-top-left">
+        <a href="#" class="fullscreen">Fullscreen</a>
+    </footer>
+
+    <script src="vendors/gamepad/gamepad.js"></script>
+    <script src="vendors/shower/shower.min.js"></script>
+    <script src="vendors/shower-gamepad/shower.gamepad.js"></script>
+    <script src="modules/fullscreen.js"></script>
+
+    <!-- Prism.js -->
+    <script src="vendors/prism/prism.js"></script>
+    <script src="modules/custom-prism.js"></script>
+</body>
+</html>
