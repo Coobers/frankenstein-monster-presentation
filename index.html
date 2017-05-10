@@ -235,18 +235,18 @@ class Home extends React.Component {
 
         <h2>HomeRender (NX 2.3.1)</h2>
 
-        <pre style="font-size: 30px;" class="language-javascript line-numbers">
+        <pre style="font-size: 28px;" class="language-javascript line-numbers">
             <code>
                 class HomeRender extends React.Component {
                     constructor(props){
-                        super(props);
-                        this.state = {my_state: 2};
+                      super(props);
+                      this.state = {my_state: 2};
                     }
                     componentWillReceiveProps(next){
-                        console.log("new props", next);
+                      console.log("new props", next);
                     }
                     render(){
-                        return (<div>Hello: {this.state.my_state}</div>)
+                      return (&lt;div>Hello: {this.state.my_state}&lt;/div>)
                     }
                 }
             </code>
