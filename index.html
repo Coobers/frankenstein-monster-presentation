@@ -305,19 +305,18 @@ class Home extends React.Component {
         <h2>Problems...</h2>
         <ul style="font-size: 40px;list-style:none">
             <li>next.js: No control over url authorization (all code is served for all users)<br/>
-            Example safe-server.js is in demo directory.</li>
-            <li>React Native: problems with fetch for pushing files to s3. Example of working S3 PUT on next slide.</li>
+            Example of auth using next.js: demo/safe-server.js</li>
+            <li>React Native: problems with fetch for pushing files to s3. Example of working S3 PUT on next slide</li>
         </ul>
 
     </section>
 
 
     <section class="slide prism">
-        <pre style="font-size: 30px;" class="language-javascript line-numbers">
+        <pre style="font-size: 16px;" class="language-javascript line-numbers">
             <code>
 var xhr = new XMLHttpRequest({headers: { 'Accept-Encoding' : 'deflate' }});
 xhr.open('PUT', url);
-
 xhr.send({uri:file.uri});
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -335,6 +334,22 @@ xhr.onerror = function(error) { console.log(">>> ERROR ",error) }
         </pre>
     </section>
 
+    <section class="slide front-page">
+        <div class="logo">
+            <!-- Logo WarsawJS -->
+            <img src="pictures/logo/warsawjs-logo-light.png">
+        </div>
+        <div class="details">
+            <img src="pictures/my-avatar.jpg" alt="Speaker"/>
+
+
+            <!-- 3. Presentation title -->
+            <h2><strong>Thank You!</strong></h2>
+
+            <!-- 5. Contact the speaker -->
+            <h2><a href="mailto:jedrzej@coobers.com">jedrzej@coobers.com</a></h2>
+        </div>
+    </section>
 
     <div class="progress"></div>
 
